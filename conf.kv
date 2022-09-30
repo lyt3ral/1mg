@@ -1,0 +1,85 @@
+<ContentNavigationDrawer>
+
+    MDList:
+
+        OneLineListItem:
+            text: "Home"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "scr 1"
+
+        OneLineListItem:
+            text: "Analyse Image"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "scr 2"
+
+        OneLineListItem:
+            text: "OCR/Translate"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "scr 3"
+
+        OneLineListItem:
+            text: "VirusTotal Scan"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "scr 4"
+
+
+MDScreen:
+
+    MDTopAppBar:
+        pos_hint: {"top": 1}
+        elevation: 4
+        title: "1mg"
+        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+    MDNavigationLayout:
+
+        MDScreenManager:
+            id: screen_manager
+
+            MDScreen:
+                name: "scr 1"
+
+                MDLabel:
+                    text: "Home"
+                    halign: "center"
+                
+
+            MDScreen:
+                name: "scr 2"
+
+                BoxLayout:
+                    orientation: "vertical"
+                    MDCard:
+                        on_press : app.pressed()
+                MDLabel:
+                    text: "Analyse"
+                    halign: "center"
+            
+            MDScreen:
+                name: "scr 3"
+
+                MDBoxLayout:
+                    id: box
+                    orientation: "vertical"
+                # MDTopAppBar:
+                #     title: "OCR"
+                
+
+            MDScreen:
+                name: "scr 4"
+
+                MDLabel:
+                    text: "Virustotal"
+                    halign: "center"
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: (0, 16, 16, 0)
+
+            ContentNavigationDrawer:
+                screen_manager: screen_manager
+                nav_drawer: nav_drawer
