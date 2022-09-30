@@ -50,23 +50,16 @@ MDScreen:
 
             MDScreen:
                 name: "scr 2"
-
-                BoxLayout:
-                    orientation: "vertical"
-                    MDCard:
-                        on_press : app.pressed()
-                MDLabel:
-                    text: "Analyse"
-                    halign: "center"
-            
-            MDScreen:
-                name: "scr 3"
-
                 MDBoxLayout:
                     id: box
-                    orientation: "vertical"
-                # MDTopAppBar:
-                #     title: "OCR"
+                    spacing: "56dp"
+                    adaptive_size: True
+                    pos_hint: {"center_x": .5, "center_y": .5}
+            MDScreen:
+                name: "scr 3"
+                MDLabel:
+                    text: "OCR"
+                    halign: "center"
                 
 
             MDScreen:
